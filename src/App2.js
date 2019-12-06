@@ -9,22 +9,22 @@ import "./styles.css";
 export default () => {
   const [data, setData] = useState([]);
   useEffect(() => {
-    async function fetchData() {
-      await fetch("https://reqres.in/api/unknown")
+    function fetchData() {
+      fetch("https://reqres.in/api/unknown")
         .then(res => res.json())
         .then(res => {
           console.log({ res });
           setData(res.data);
+          new Swiper(".swiper-container1", {
+            slidesPerView: "auto",
+            slidesPerGroup: 2
+          });
         });
-      new Swiper(".swiper-container1", {
-        slidesPerView: "auto",
-        slidesPerGroup: 2
-      });
     }
     fetchData();
   }, []);
   return (
-    <div className="swiper-container1" dir="ltr">
+    <div className="swiper-container swiper-container1" dir="ltr">
       <div className="swiper-wrapper">
         {data.map((item, i) => (
           <div
