@@ -16,12 +16,12 @@ export default () => {
           console.log({ res });
           setData(res.data);
         });
+      new Swiper(".swiper-container1", {
+        slidesPerView: "auto",
+        slidesPerGroup: 2
+      });
     }
     fetchData();
-    new Swiper(".swiper-container1", {
-      slidesPerView: "auto",
-      slidesPerGroup: 2
-    });
   }, []);
   return (
     <div className="swiper-container1" dir="ltr">
